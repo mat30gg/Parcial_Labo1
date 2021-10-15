@@ -1,0 +1,20 @@
+10:16:25 **** Incremental Build of configuration Debug for project Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\input.o" "..\\src\\input.c" 
+..\src\input.c: In function 'esCuit':
+..\src\input.c:130:9: warning: variable 'caracter' set but not used [-Wunused-but-set-variable]
+     int caracter;
+         ^~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pedidos.o" "..\\src\\pedidos.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+..\src\Parcial labo 1.c: In function 'main':
+..\src\Parcial labo 1.c:14:28: error: 'TAMLOCALIDAD' undeclared (first use in this function)
+     eLocalidad localidades[TAMLOCALIDAD];
+                            ^~~~~~~~~~~~
+..\src\Parcial labo 1.c:14:28: note: each undeclared identifier is reported only once for each function it appears in
+..\src\Parcial labo 1.c:17:5: warning: implicit declaration of function 'IniciarLocalidad' [-Wimplicit-function-declaration]
+     IniciarLocalidad(localidades, TAMLOCALIDAD);
+     ^~~~~~~~~~~~~~~~
+..\src\Parcial labo 1.c:14:16: warning: unused variable 'localidades' [-Wunused-variable]
+     eLocalidad localidades[TAMLOCALIDAD];
+                ^~~~~~~~~~~
