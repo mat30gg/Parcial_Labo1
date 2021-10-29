@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include "cliente.h"
-#include "localidad.h"
 #include "pedidos.h"
+#include "localidad.h"
 #include "nucleo.h"
 
 int main()
 {
+	setbuf(stdout, NULL);
     int eleccion;
     int ultimoClienteId = 1;
     int ultimoPedidosId = 500;
     int banderaPedidos = 0;
+    int contCliente = 0;
     eCliente arrayClientes[TAMCLIENTE];
     ePedido pedidos[TAMPEDIDOS];
     eLocalidad localidades[TAMLOCALIDAD];
@@ -22,16 +24,27 @@ int main()
         {
             case 1:
                 MainAltaCliente(arrayClientes, TAMCLIENTE, localidades, TAMLOCALIDAD, &ultimoClienteId);
+                contCliente++;
             break;
             case 2:
-                MainModificarCliente(arrayClientes, TAMCLIENTE);
+            	if(contCliente > 0)
+            	{
+            		MainModificarCliente(arrayClientes, TAMCLIENTE, localidades, TAMLOCALIDAD);
+            	}
             break;
             case 3:
-                MainBajaCliente(arrayClientes, TAMCLIENTE);
+            	if(contCliente > 0)
+            	{
+            		MainBajaCliente(arrayClientes, TAMCLIENTE);
+            		contCliente--;
+            	}
             break;
             case 4:
-                MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, &ultimoPedidosId);
-                banderaPedidos = 1;
+            	if(contCliente > 0)
+            	{
+            		MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, &ultimoPedidosId);
+            		banderaPedidos = 1;
+            	}
             break;
             case 5:
                 if(banderaPedidos == 1)
@@ -40,24 +53,27 @@ int main()
                 }
             break;
             case 6:
-                MainImprimirClientes(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS);
+            	if(contCliente > 0)
+            	{
+            		MainImprimirClientes(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS);
+            	}
             break;
             case 7:
                 if(banderaPedidos == 1)
                 {
-                    MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, "PENDIENTE");
+                    MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, PENDIENTE);
                 }
             break;
             case 8:
                 if(banderaPedidos == 1)
                 {
-                    MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, "COMPLETADO");
+                    MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, COMPLETADO);
                 }
             break;
             case 9:
                 if(banderaPedidos == 1)
                 {
-                    MainPendientesEnLocalidad(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS);
+                    MainPendientesEnLocalidad(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD);
                 }
             break;
             case 10:
@@ -65,6 +81,18 @@ int main()
                 {
                     MainPoliPromedio(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS);
                 }
+            break;
+            case 11:
+            	if(banderaPedidos == 1)
+            	{
+            		MainClienteMasEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, PENDIENTE);
+            	}
+            break;
+            case 12:
+            	if(banderaPedidos == 1)
+            	{
+            		MainClienteMasEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, COMPLETADO);
+            	}
             break;
             case 0:
                 printf("SALIENDO.");

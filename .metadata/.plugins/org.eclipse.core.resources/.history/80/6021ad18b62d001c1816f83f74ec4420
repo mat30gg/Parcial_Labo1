@@ -1,7 +1,0 @@
-#define TAMLOCALIDAD 50
-
-typedef struct{
-    int idLocalidad;
-    char* descLocalidad;
-    int isEmpty;
-}eLocalidad;
