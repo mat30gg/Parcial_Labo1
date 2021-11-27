@@ -64,6 +64,8 @@ int MainModificarCliente(eCliente arrayCliente[], int tamCliente, eLocalidad loc
 int ModificarCliente(eCliente arrayCliente[], int indice, eLocalidad localidades[], int tamLocalidad)
 {
     int modificado = 1;
+    printf("\n");
+    ImprimirUnCliente(arrayCliente[indice]);
     int eleccion;
     do{
         printf("\n1 - Direccion");
@@ -102,7 +104,7 @@ int ModificarLocalidad(eCliente* cliente, eLocalidad localidades[], int tamLocal
 
 int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int* ultimoId)
 {
-    int kilosTotales;
+    float kilosTotales;
     int idCliente;
     int idPedido;
     int indice;
@@ -125,7 +127,10 @@ int MainProcesarResiduo(ePedido pedidos[], int tamPedidos)
     int indiceProcesar;
     ImprimirTodosPedido(pedidos, tamPedidos);
     indiceProcesar = SolicitarIdPedidoProcesar(pedidos, tamPedidos);
-    IngresarPlasticos(pedidos, indiceProcesar);
+    if(pedidos[indiceProcesar].estadoPedido == PENDIENTE)
+    {
+    	IngresarPlasticos(pedidos, indiceProcesar);
+    }
     pedidos[indiceProcesar].estadoPedido = COMPLETADO;
     return 1;
 }
@@ -198,11 +203,14 @@ int MainImprimirEstado(eCliente arrayCliente[], int tamCliente, ePedido pedidos[
 {
     int auxId;
     int bandera1 = 0;
-    printf("/ ID / CUIT Cliente /    Direccion    / ");
     for(int x = 0; x < tamPedidos; x++)
     {
         if(pedidos[x].isEmpty == 0 && pedidos[x].estadoPedido == estado)
         {
+        	if(x == 0)
+        	{
+        		printf("/ ID / CUIT Cliente /    Direccion    / ");
+        	}
             auxId = BuscarClientePorID(arrayCliente, tamCliente, pedidos[x].idCliente);
             if(estado == PENDIENTE)
             {
@@ -287,8 +295,8 @@ int ClientesPP(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int t
 {
     int x;
     int contadorClientesPP = 0;
-    int contadorPP = 0;
-    int aux;
+    float contadorPP = 0;
+    float aux;
     for(x = 0; x < tamCliente; x++)
     {
         if(arrayCliente[x].isEmpty == 0)
@@ -298,13 +306,13 @@ int ClientesPP(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int t
             contadorClientesPP++;
         }
     }
-    *promedio = (float)contadorPP / (float)contadorClientesPP;
+    *promedio = contadorPP / contadorClientesPP;
     return contadorPP;
 }
 
-int PedidosPP(ePedido pedidos[], int tamPedidos, int idCliente)
+float PedidosPP(ePedido pedidos[], int tamPedidos, int idCliente)
 {
-    int contador = 0;
+    float contador = 0;
     for(int x = 0; x < tamPedidos; x++)
     {
         if(pedidos[x].isEmpty == 0 && pedidos[x].idCliente == idCliente)

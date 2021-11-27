@@ -1,4 +1,5 @@
 int MainMenu();
+int MainAltaCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad,int* ultimoId);
 int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int* ultimoId);
 
 int MainProcesarResiduo(ePedido pedidos[], int tamPedidos);
@@ -18,9 +19,8 @@ int PendientesEnLocalidad(eCliente arrayCliente[], int tamCliente, ePedido pedid
 
 int MainPoliPromedio(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos);
 int ClientesPP(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, float* promedio);
-int PedidosPP(ePedido pedidos[], int tamPedidos, int idCliente);
+float PedidosPP(ePedido pedidos[], int tamPedidos, int idCliente);
 
-int MainAltaCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad,int* ultimoId);
 int MainModificarCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad);
 int ModificarCliente(eCliente arrayCliente[], int indice, eLocalidad localidades[], int tamLocalidad);
 int ModificarDireccion(eCliente* cliente);
