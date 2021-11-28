@@ -232,7 +232,7 @@ int MainImprimirEstado(eCliente arrayCliente[], int tamCliente, ePedido pedidos[
             }
         }
     }
-    return 1;
+    return bandera1;
 }
 
 void ImprimirPendiente(int idPedido, int cuit, char* direccion, float kilosTotales)

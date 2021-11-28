@@ -49,8 +49,10 @@ int main()
             case 5:
                 if(banderaPedidos == 1)
                 {
-                	MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, PENDIENTE);
-                    MainProcesarResiduo(pedidos, TAMPEDIDOS);
+                	if(MainImprimirEstado(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, PENDIENTE) == 1)
+                	{
+                		MainProcesarResiduo(pedidos, TAMPEDIDOS);
+                	}
                 }
             break;
             case 6:
