@@ -1655,3 +1655,8 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResou
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1461)
+
+!ENTRY org.eclipse.core.resources 2 2 2021-11-28 11:06:00.969
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-28 11:06:00.969
+!MESSAGE The project description file (.project) for 'Parcial labo 1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

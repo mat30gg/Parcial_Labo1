@@ -125,7 +125,7 @@ int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], i
 int MainProcesarResiduo(ePedido pedidos[], int tamPedidos)
 {
     int indiceProcesar;
-    ImprimirTodosPedido(pedidos, tamPedidos);
+    //ImprimirTodosPedido(pedidos, tamPedidos);
     indiceProcesar = SolicitarIdPedidoProcesar(pedidos, tamPedidos);
     if(pedidos[indiceProcesar].estadoPedido == PENDIENTE)
     {
