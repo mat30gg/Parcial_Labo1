@@ -42,6 +42,19 @@ int getString(char* msg, char* destino)
 	return returnAux;
 }
 
+int getStringAll(char* msg, char* destino)
+{
+	int returnAux;
+	returnAux = 0;
+	printf("%s", msg);
+	scanf("%s", destino);
+	if(destino == NULL)
+	{
+		returnAux = -1;
+	}
+	return returnAux;
+}
+
 int getCuit(char* msg)
 {
     int cuit;
@@ -127,11 +140,9 @@ int esAlfanumerica(char* cadena)
 int esCuit(char* cadena)
 {
     int retorn;
-    int caracter;
     retorn = 1;
     for(int x = 0; cadena[x] != '\0'; x++)
     {
-        caracter = (int)cadena[x];
         if(isdigit(cadena[x]) == 0 && cadena[x] != '-')
         {
             retorn = 0;

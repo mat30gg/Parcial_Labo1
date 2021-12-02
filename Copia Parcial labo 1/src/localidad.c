@@ -77,9 +77,14 @@ int ImprimirLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalida
 	indice = BuscarIndiceLocalidad(localidades, tamLocalidad, idLocalidad);
 	if(indice != -1)
 	{
-		printf("%s", localidades[indice].descLocalidad);
+		ImprimirUnaLocalidad(localidades[indice]);
 	}
 	return indice;
+}
+
+void ImprimirUnaLocalidad(eLocalidad localidad)
+{
+	printf("/ %s ", localidad.descLocalidad);
 }
 
 int BuscarIndiceLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad)

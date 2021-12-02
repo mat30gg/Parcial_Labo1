@@ -13,7 +13,6 @@ void InicializarClientes(eCliente arrayCliente[], int tamCliente);
 int SolicitarIdCliente(char* mensaje, eCliente arrayCliente[], int tamCliente);
 int BuscarClientePorID(eCliente arrayCliente[], int tamCliente, int id);
 int IngresarIdClienteExistente(eCliente arrayCliente[], int tamCliente);
-void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente);
 void ImprimirUnCliente(eCliente cliente);
 
 void CargaCliente(eCliente arrayCliente[], int indice, char nombre[], int cuit, char direccion[], int localidad, int idCliente);

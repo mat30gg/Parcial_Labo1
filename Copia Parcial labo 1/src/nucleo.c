@@ -41,7 +41,7 @@ int MainAltaCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localida
         printf("Cargando cliente en ID: %d\n", *ultimoId);
         getString("Ingrese nombre del cliente: ", nombre);
         cuit = getCuit("Ingrese CUIT del cliente: ");
-        getString("Ingrese direccion del cliente: ", direccion);
+        getStringAll("Ingrese direccion del cliente: ", direccion);
         idLocalidad = AltaLocalidad(localidades, tamLocalidad);
         CargaCliente(arrayCliente, indice, nombre, cuit, direccion, idLocalidad, (*ultimoId)++);
     }
@@ -66,6 +66,7 @@ int ModificarCliente(eCliente arrayCliente[], int indice, eLocalidad localidades
     int modificado = 1;
     printf("\n");
     ImprimirUnCliente(arrayCliente[indice]);
+    ImprimirLocalidad(localidades, tamLocalidad, arrayCliente[indice].idLocalidad);
     int eleccion;
     do{
         printf("\n1 - Direccion");
@@ -92,7 +93,7 @@ int ModificarCliente(eCliente arrayCliente[], int indice, eLocalidad localidades
 
 int ModificarDireccion(eCliente* cliente)
 {
-    getString("\nIngrese nueva direccion del cliente: ", cliente->direccion);
+    getStringAll("\nIngrese nueva direccion del cliente: ", cliente->direccion);
     return 1;
 }
 
@@ -102,7 +103,7 @@ int ModificarLocalidad(eCliente* cliente, eLocalidad localidades[], int tamLocal
     return 1;
 }
 
-int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int* ultimoId)
+int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, eLocalidad localidades[], int tamLocalidad, int* ultimoId)
 {
     float kilosTotales;
     int idCliente;
@@ -114,7 +115,7 @@ int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], i
     {
         retorn = 1;
         idPedido = (*ultimoId)++;
-        ImprimirTodosCliente(arrayCliente, tamCliente);
+        ImprimirTodosCliente(arrayCliente, tamCliente, localidades, tamLocalidad);
         idCliente = IngresarIdClienteExistente(arrayCliente, tamCliente);
         kilosTotales = getPositivoFlotante("Ingrese kilos totales a recolectar: ");
         CargaPedido(pedidos, indice, idPedido, idCliente, kilosTotales, PENDIENTE);
@@ -125,7 +126,6 @@ int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], i
 int MainProcesarResiduo(ePedido pedidos[], int tamPedidos)
 {
     int indiceProcesar;
-    //ImprimirTodosPedido(pedidos, tamPedidos);
     indiceProcesar = SolicitarIdPedidoProcesar(pedidos, tamPedidos);
     if(pedidos[indiceProcesar].estadoPedido == PENDIENTE)
     {
@@ -167,15 +167,16 @@ int VerificarPlasticos(ePedido pedido)
     return returnValidar;
 }
 
-int MainImprimirClientes(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos)
+int MainImprimirClientes(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, eLocalidad localidades[], int tamLocalidad)
 {
     int cantPendientes;
-    printf("\n|__ID__|___Nombre___|____Cuit_____|___Direccion___|__IDLocalidad__|\n");
+    printf("\n|__ID__|___Nombre___|____Cuit_____|___Direccion___|__Localidad__|\n");
     for(int x = 0; x < tamCliente; x++)
     {
         if(arrayCliente[x].isEmpty == 0)
         {
             ImprimirUnCliente(arrayCliente[x]);
+            ImprimirLocalidad(localidades, tamLocalidad, arrayCliente[x].idLocalidad);
             cantPendientes = CantidadEstado(pedidos, tamPedidos, arrayCliente[x].idCliente, PENDIENTE);
             printf(" !Cantidad de pedidos de recoleccion pendientes: %d\n", cantPendientes);
         }
@@ -199,6 +200,20 @@ int CantidadEstado(ePedido pedidos[], int tamPedidos, int idCliente, int estadoP
     return contadorEstadoPedido;
 }
 
+void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad)
+{
+    printf("\n|__ID__|___Nombre___|____Cuit_____|___Direccion___|___Localidad___|");
+    for(int x = 0; x < tamCliente; x++)
+    {
+        if(arrayCliente[x].isEmpty == 0)
+        {
+            printf("\n");
+            ImprimirUnCliente(arrayCliente[x]);
+            ImprimirLocalidad(localidades, tamLocalidad, arrayCliente[x].idLocalidad);
+        }
+    }
+}
+
 int MainImprimirEstado(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int estado)
 {
     int auxId;
@@ -207,28 +222,32 @@ int MainImprimirEstado(eCliente arrayCliente[], int tamCliente, ePedido pedidos[
     {
         if(pedidos[x].isEmpty == 0 && pedidos[x].estadoPedido == estado)
         {
-        	if(x == 0)
-        	{
-        		printf("/ ID / CUIT Cliente /    Direccion    / ");
-        	}
+
             auxId = BuscarClientePorID(arrayCliente, tamCliente, pedidos[x].idCliente);
-            if(estado == PENDIENTE)
+            if(auxId != -1)
             {
-            	if(bandera1 == 0)
-            	{
-            		printf("Kg totales");
-            		bandera1 = 1;
-            	}
-                ImprimirPendiente(pedidos[x].idPedido, arrayCliente[auxId].cuit, arrayCliente[auxId].direccion, pedidos[x].kilosTotales);
-            }
-            if(estado == COMPLETADO)
-            {
-            	if(bandera1 == 0)
-            	{
-            		printf("HDPE  /  LDPE /  PP");
-            		bandera1 = 1;
-            	}
-                ImprimirProcesado(pedidos[x].idPedido, arrayCliente[auxId].cuit, arrayCliente[auxId].direccion, pedidos[x].HDPE, pedidos[x].LDPE, pedidos[x].PP);
+            	if(x == 0)
+				{
+					printf("/ ID / CUIT Cliente /    Direccion    / ");
+				}
+				if(estado == PENDIENTE)
+				{
+					if(bandera1 == 0)
+					{
+						printf("Kg totales");
+						bandera1 = 1;
+					}
+					ImprimirPendiente(pedidos[x].idPedido, arrayCliente[auxId].cuit, arrayCliente[auxId].direccion, pedidos[x].kilosTotales);
+				}
+				if(estado == COMPLETADO)
+				{
+					if(bandera1 == 0)
+					{
+						printf("HDPE  /  LDPE /  PP");
+						bandera1 = 1;
+					}
+					ImprimirProcesado(pedidos[x].idPedido, arrayCliente[auxId].cuit, arrayCliente[auxId].direccion, pedidos[x].HDPE, pedidos[x].LDPE, pedidos[x].PP);
+				}
             }
         }
     }

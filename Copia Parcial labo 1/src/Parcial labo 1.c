@@ -29,12 +29,14 @@ int main()
             case 2:
             	if(contCliente > 0)
             	{
+            		ImprimirTodosCliente(arrayClientes, TAMCLIENTE, localidades, TAMLOCALIDAD);
             		MainModificarCliente(arrayClientes, TAMCLIENTE, localidades, TAMLOCALIDAD);
             	}
             break;
             case 3:
             	if(contCliente > 0)
             	{
+            		ImprimirTodosCliente(arrayClientes, TAMCLIENTE, localidades, TAMLOCALIDAD);
             		MainBajaCliente(arrayClientes, TAMCLIENTE);
             		contCliente--;
             	}
@@ -42,7 +44,7 @@ int main()
             case 4:
             	if(contCliente > 0)
             	{
-            		MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, &ultimoPedidosId);
+            		MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD, &ultimoPedidosId);
             		banderaPedidos = 1;
             	}
             break;
@@ -58,7 +60,7 @@ int main()
             case 6:
             	if(contCliente > 0)
             	{
-            		MainImprimirClientes(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS);
+            		MainImprimirClientes(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD);
             	}
             break;
             case 7:

@@ -13,5 +13,6 @@ void CargaLocalidad(eLocalidad localidades[], int indice, int idLocalidad, char*
 
 int BuscarLocalidadExistente(eLocalidad localidades[], int tamLocalidad, char* localidadIng);
 int ImprimirLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad);
+void ImprimirUnaLocalidad(eLocalidad localidad);
 int SolicitarLocalidadIngresada(eLocalidad localidades[], int tamLocalidad);
 int BuscarIndiceLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad);

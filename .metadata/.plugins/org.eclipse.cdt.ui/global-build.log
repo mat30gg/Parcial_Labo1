@@ -1,15 +1,154 @@
 Info: Nothing to build for Copia Parcial labo 1
 Info: Nothing to build for Copia Parcial labo 1
-Info: Nothing to build for Copia Parcial labo 1
-Info: Nothing to build for Copia Parcial labo 1
-Info: Nothing to build for Copia Parcial labo 1
-11:45:36 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+23:41:58 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+..\src\Parcial labo 1.c: In function 'main':
+..\src\Parcial labo 1.c:63:15: error: too many arguments to function 'MainImprimirClientes'
+               MainImprimirClientes(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD);
+               ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\Parcial labo 1.c:5:0:
+..\src\nucleo.h:9:5: note: declared here
+ int MainImprimirClientes(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos);
+     ^~~~~~~~~~~~~~~~~~~~
+23:43:18 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
 gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
-11:55:21 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+23:48:47 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+..\src\cliente.c:139:6: error: conflicting types for 'ImprimirTodosCliente'
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad)
+      ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\cliente.c:4:0:
+..\src\cliente.h:16:6: note: previous declaration of 'ImprimirTodosCliente' was here
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente);
+      ^~~~~~~~~~~~~~~~~~~~
+23:50:53 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+..\src\nucleo.c:204:6: error: conflicting types for 'ImprimirTodosCliente'
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad)
+      ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\nucleo.c:7:0:
+..\src\nucleo.h:11:6: note: previous declaration of 'ImprimirTodosCliente' was here
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente);
+      ^~~~~~~~~~~~~~~~~~~~
+23:54:33 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+..\src\localidad.c: In function 'ImprimirLocalidad':
+..\src\localidad.c:80:24: error: incompatible type for argument 1 of 'ImprimirUnaLocalidad'
+   ImprimirUnaLocalidad(localidades[indice]);
+                        ^~~~~~~~~~~
+In file included from ..\src\localidad.c:4:0:
+..\src\localidad.h:16:6: note: expected 'eLocalidad * {aka struct <anonymous> *}' but argument is of type 'eLocalidad {aka struct <anonymous>}'
+ void ImprimirUnaLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+..\src\localidad.c:80:3: error: too few arguments to function 'ImprimirUnaLocalidad'
+   ImprimirUnaLocalidad(localidades[indice]);
+   ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\localidad.c:4:0:
+..\src\localidad.h:16:6: note: declared here
+ void ImprimirUnaLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+..\src\localidad.c: At top level:
+..\src\localidad.c:85:6: error: conflicting types for 'ImprimirUnaLocalidad'
+ void ImprimirUnaLocalidad(eLocalidad localidad)
+      ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\localidad.c:4:0:
+..\src\localidad.h:16:6: note: previous declaration of 'ImprimirUnaLocalidad' was here
+ void ImprimirUnaLocalidad(eLocalidad localidades[], int tamLocalidad, int idLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+23:55:08 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+..\src\nucleo.c: In function 'MainAltaPedido':
+..\src\nucleo.c:117:9: error: too few arguments to function 'ImprimirTodosCliente'
+         ImprimirTodosCliente(arrayCliente, tamCliente);
+         ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\nucleo.c:7:0:
+..\src\nucleo.h:11:6: note: declared here
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+23:56:49 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+..\src\Parcial labo 1.c: In function 'main':
+..\src\Parcial labo 1.c:32:15: error: too few arguments to function 'ImprimirTodosCliente'
+               ImprimirTodosCliente(arrayClientes, TAMCLIENTE);
+               ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\Parcial labo 1.c:5:0:
+..\src\nucleo.h:11:6: note: declared here
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+..\src\Parcial labo 1.c:39:15: error: too few arguments to function 'ImprimirTodosCliente'
+               ImprimirTodosCliente(arrayClientes, TAMCLIENTE);
+               ^~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\Parcial labo 1.c:5:0:
+..\src\nucleo.h:11:6: note: declared here
+ void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente, eLocalidad localidades[], int tamLocalidad);
+      ^~~~~~~~~~~~~~~~~~~~
+..\src\Parcial labo 1.c:47:78: warning: passing argument 5 of 'MainAltaPedido' from incompatible pointer type [-Wincompatible-pointer-types]
+               MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD, &ultimoPedidosId);
+                                                                              ^~~~~~~~~~~
+In file included from ..\src\Parcial labo 1.c:5:0:
+..\src\nucleo.h:3:5: note: expected 'int *' but argument is of type 'eLocalidad * {aka struct <anonymous> *}'
+ int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int* ultimoId);
+     ^~~~~~~~~~~~~~
+..\src\Parcial labo 1.c:47:15: error: too many arguments to function 'MainAltaPedido'
+               MainAltaPedido(arrayClientes, TAMCLIENTE, pedidos, TAMPEDIDOS, localidades, TAMLOCALIDAD, &ultimoPedidosId);
+               ^~~~~~~~~~~~~~
+In file included from ..\src\Parcial labo 1.c:5:0:
+..\src\nucleo.h:3:5: note: declared here
+ int MainAltaPedido(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, int* ultimoId);
+     ^~~~~~~~~~~~~~
+23:57:48 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
 gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
+00:09:59 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
+00:16:48 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\input.o" "..\\src\\input.c" 
+..\src\input.c: In function 'esCuit':
+..\src\input.c:143:9: warning: variable 'caracter' set but not used [-Wunused-but-set-variable]
+     int caracter;
+         ^~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pedidos.o" "..\\src\\pedidos.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+..\src\nucleo.c: In function 'ModificarCliente':
+..\src\nucleo.c:69:5: warning: implicit declaration of function 'ImprmirLocalidad' [-Wimplicit-function-declaration]
+     ImprmirLocalidad(localidades, tamLocalidad, arrayCliente[indice].idLocalidad);
+     ^~~~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
+src\nucleo.o: In function `ModificarCliente':
+C:\Users\mateo\Desktop\Programacion\UTN\Laboratorio\Parciales\Copia Parcial labo 1\Debug/../src/nucleo.c:69: undefined reference to `ImprmirLocalidad'
+collect2.exe: error: ld returned 1 exit status
+00:17:43 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\input.o" "..\\src\\input.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1
+Info: Nothing to build for Copia Parcial labo 1

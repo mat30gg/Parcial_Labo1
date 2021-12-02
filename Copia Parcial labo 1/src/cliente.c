@@ -136,22 +136,9 @@ int BajaCliente(eCliente arrayCliente[], int indice)
     return 1;
 }
 
-void ImprimirTodosCliente(eCliente arrayCliente[], int tamCliente)
-{
-    printf("\n|__ID__|___Nombre___|____Cuit_____|___Direccion___|___IDLocalidad___|");
-    for(int x = 0; x < tamCliente; x++)
-    {
-        if(arrayCliente[x].isEmpty == 0)
-        {
-            printf("\n");
-            ImprimirUnCliente(arrayCliente[x]);
-        }
-    }
-}
-
 void ImprimirUnCliente(eCliente cliente)
 {
-    printf("{ %-4d / %-11s/ %-12d/ %-14s/ %-14d}", cliente.idCliente, cliente.nombre, cliente.cuit, cliente.direccion, cliente.idLocalidad);
+    printf("/ %-4d/ %-11s/ %-12d/ %-14s ", cliente.idCliente, cliente.nombre, cliente.cuit, cliente.direccion);
 }
 
 

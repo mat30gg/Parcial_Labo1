@@ -12,6 +12,7 @@ int getInt(char* msg);
 float getFloat(char* msg);
 char getChar(char* msg);
 int getString(char* msg, char* destino);
+int getStringAll(char* msg, char* destino);
 int getCuit(char* msg);
 int getPositivoEntero(char* msg);
 float getPositivoFlotante(char* msg);
