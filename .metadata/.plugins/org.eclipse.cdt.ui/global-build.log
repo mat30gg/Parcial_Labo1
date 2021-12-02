@@ -152,3 +152,19 @@ Info: Nothing to build for Copia Parcial labo 1
 Info: Nothing to build for Copia Parcial labo 1
 Info: Nothing to build for Copia Parcial labo 1
 Info: Nothing to build for Copia Parcial labo 1
+16:58:08 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\nucleo.o" "..\\src\\nucleo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 
+17:33:11 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+..\src\Parcial labo 1.c: In function 'main':
+..\src\Parcial labo 1.c:105:14: error: expected ';' before '}' token
+              }
+              ^
+17:33:40 **** Incremental Build of configuration Debug for project Copia Parcial labo 1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial labo 1.o" "..\\src\\Parcial labo 1.c" 
+gcc -o "Copia Parcial labo 1.exe" "src\\Parcial labo 1.o" "src\\cliente.o" "src\\input.o" "src\\localidad.o" "src\\nucleo.o" "src\\pedidos.o" 

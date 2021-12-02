@@ -307,7 +307,7 @@ int MainPoliPromedio(eCliente arrayCliente[], int tamCliente, ePedido pedidos[],
     float promedio;
     ClientesPP(arrayCliente, tamCliente, pedidos, tamPedidos, &promedio);
     printf("El promedio de Polopropileno por cliente es de %.2f", promedio);
-    return 1;
+    return promedio;
 }
 
 int ClientesPP(eCliente arrayCliente[], int tamCliente, ePedido pedidos[], int tamPedidos, float* promedio)
